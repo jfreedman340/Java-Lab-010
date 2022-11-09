@@ -1,5 +1,7 @@
+import java.io.IOException;
+
 public class WeatherChannel {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         WeatherStation ws = new WeatherStation();
         Display[] displays = {
                 new CurrentConditions(ws),
@@ -7,7 +9,8 @@ public class WeatherChannel {
                 new ForecastDisplay(ws),
         };
         for (Display d : displays) {
-            d.update();
+            ws.registerDisplay(d);
         }
+        ws.measure();
     }
 }

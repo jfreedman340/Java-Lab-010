@@ -1,6 +1,6 @@
 public class StatisticsDisplay implements Display{
     private WeatherStation ws;
-    private float temperatureMin = 200;
+    private float temperatureMin = 150;
     private float temperatureMax = -300;
     private float temperatureTotal = 0;
     private int numReadings = 0;
@@ -25,6 +25,7 @@ public class StatisticsDisplay implements Display{
 
     @Override
     public void display() {
-        System.out.printf("Min: %f%nMax: %f%n", this.t);
+        System.out.printf("Min: %f%nMax: %f%n",
+                this.temperatureMin, this.temperatureMax, (this.temperatureTotal/this.numReadings));
     }
 }
